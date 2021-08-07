@@ -1,4 +1,5 @@
 **Selenium webdriver**
+
 Selenium client Library(java) converts JSON  converts Browser Drivers(se browser) converts  real Browser(chrome.edge,firefox etc)
 Step by step Setup for selenium web driver
 
@@ -34,7 +35,7 @@ Step by step Setup for selenium web driver
  
     [maven dependencies](https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java)
  
-   ex: when we are trying to add we have to add 
+   ex:we have to add 
    <dependencies>..........</dependencies>
 		
 		<dependency>
