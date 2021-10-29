@@ -390,7 +390,433 @@ public class LoginTest1 {
 *************************************************************************************************************
 
 
+package script1;
 
+import org.testng.annotations.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeMethod;
+
+public class NewTest {
+	String driverPath="C:\\Users\\HP\\Desktop\\icons folder\\web\\chromedriver.exe";
+ public WebDriver driver;
+ 
+  @BeforeTest
+  public void beforeTest() throws InterruptedException {
+	  System.setProperty("webdriver.chrome.driver",driverPath);
+		ChromeDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		
+		String websiteurl="http://www.google.com";
+		driver.get(websiteurl);
+	  
+  }
+  @Test
+  Public void fnInput()
+  {
+	  WebElement p=driver.findElement(By.xpath("//input[@class='gLFyf gsfi']"));
+		p.sendKeys("Gmail");
+		p.sendKeys(Keys.ENTER);
+		WebElement Sitelink=driver.findElement(By.xpath("//h3[@class='LC20lb DKV0Md']"));
+		 Sitelink.click();
+  }
+
+}
+
+***********************************************************************************************
+package gmail;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class gmail {
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\HP\\Desktop\\icons folder\\web\\chromedriver.exe");
+		ChromeDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("http://www.google.com");
+		WebElement p=driver.findElement(By.xpath("//input[@class='gLFyf gsfi']"));
+		p.sendKeys("Gmail");
+		p.sendKeys(Keys.ENTER);
+		//driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+		driver.findElement(By.xpath("//h3[@class='LC20lb DKV0Md']")).click();
+		//String gmail
+	//driver.findElement(By.xpath("//a[@class='gb_f']")).click();
+	driver.findElement(By.xpath("/html/body/header/div/div/div/a[2]")).click();
+	driver.findElement(By.id("identifierId")).sendKeys("saitejaswi.chakravaram05@gmail.com");
+	driver.findElement(By.xpath("//*[@id='identifierNext']")).click();
+	//driver.findElement(By.xpath("//div[@id='next']")).cli;
+//driver.findElement(By.name("Try again")).click();
+//
+		
+	}
+
+}
+*****************************************************************************************************
+
+package org;
+
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class Logintest1 {
+	@BeforeTest
+	public void logintoApplication()
+	{
+		System.out.println("login to application");
+	}
+	@AfterTest
+	public void logouttoapplication()
+	{
+		System.out.println("logout from application");
+	}
+	
+	
+	@BeforeMethod
+	public void connecttoDb() {
+		System.out.println("db connectected");		
+	}
+	
+	
+	@AfterMethod
+	public void disconnecfromDb() {
+		System.out.println("db disconnectected");	
+	}
+	
+	@Test(priority=1,description="This is login")
+	public void alogin() {
+		
+		System.out.println("tes1");
+	}
+	
+	@Test(priority=2,description="This is logout")
+	public void alogout() {
+		System.out.println("test2");
+
+	}
+
+}
+
+******************************************************************************************
+package org;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class verifytitileTest {
+ public void TitleTest()
+ {
+	 String title="Electr"
+	 WebDriverManager.chromedriver().setup();
+	 WebDriver driver=new ChromeDriver();
+	 driver.get("https://www.ebay.com/");
+	 
+ }
+}
+*********************************************************************************************
+package com.example.sample;
+import android.R;
+//
+//public class simple {
+//
+//	public static void main(String[] args) {
+//		// TODO Auto-generated method stub
+//
+//	}
+//
+//}
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import android.widget.Toast;
+
+
+public class simple extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_list_item);
+        tToast("onCreate");
+    }
+
+    public void onStart() {
+    	super.onStart();
+    	tToast("onStart");
+    }
+
+    public void onRestart() {
+    	super.onRestart();
+    	tToast("onRestart");
+    }
+
+    public void onResume() {
+    	super.onResume();
+    	tToast("onResume");
+    }
+
+    public void onPause() {
+    	super.onPause();
+    	tToast("onPause: bye bye!");
+    }
+
+    public void onStop() {
+    	super.onStop();
+    	tToast("onStop.");
+    }
+
+    public void onDestroy() {
+    	super.onStop();
+    	tToast("onDestroy.");
+    }
+
+    private void tToast(String s) {
+        Context context = getApplicationContext();
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(context, s, duration);
+        toast.show();
+    }
+
+}
+
+
+        
+***************************************************************************************************
+package pack;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class gmail {
+	@SuppressWarnings("deprecation")
+	public static void main(String[] args) {
+		WebDriverManager.chromedriver().setup();
+		ChromeDriver driver =new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.google.com/");
+	   
+	      WebElement p=driver.findElement(By.xpath("//input[@class='gLFyf gsfi']"));
+	      p.sendKeys("Gmail");
+		  p.sendKeys(Keys.ENTER);
+		  //driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+		  WebElement sitelink=driver.findElement(By.xpath(""));
+		  
+//	      p.submit();
+//	      Web
+//	      driver.findElement(By.xpath("//h3[@class='tF2Cxc']")).click();
+//	      
+		//driver.get("https://www.google.com/search?q=gmail&oq=gmail&aqs=chrome..69i57j69i59j69i61j69i65l2.3671j0j7&sourceid=chrome&ie=UTF-8");
+
+//		driver.findElement(By.xpath("//a[@class='gb_f']")).click();
+//		driver.findElement(By.xpath("/html/body/header/div/div/div/a[2]")).click();
+//		driver.findElement(By.id("identifierId")).sendKeys("saitejaswi.chakravaram05@gmail.com");
+//		driver.findElement(By.xpath("//*[@id='identifierNext']")).click();
+//  	//driver.findElement(By.name("Try again")).click();
+//
+//		driver.findElement(By.xpath("//*[@id='next']")).click();
+//		driver.findElement(By.name("password")).sendKeys("*******");
+//		driver.findElement(By.xpath("//*[@id='passwordNext']")).click();		
+}
+}
+
+***************************************************************************************************
+package pack;
+
+
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class multi {
+
+	public static void main(String[] args) {
+		WebDriverManager.chromedriver().setup();
+		ChromeDriver driver =new ChromeDriver();
+//		driver.get("https://www.amazon.com/");
+//		driver.manage().window().maximize();
+//		driver.findElement(By.xpath("//*[@id=\"gh-ac\"]")).sendKeys("mobile");
+//		driver.findElement(By.xpath("//*[@id=\"gh-btn\"]")).click();
+//		
+		String baseUrl="http://demo.guru99.com/test/newtours/";
+		String expectedTitle="Welcome:Mercury Tours";
+		String actualTitle="";
+		driver.get(baseUrl);
+		actualTitle=driver.getTitle();
+		if(actualTitle.contentEquals(expectedTitle)) {
+			System.out.println("Test Passed!");
+		}
+		else
+		{
+			System.out.println("Test Failed");
+		}
+		
+		driver.close();
+	}
+
+}
+
+**********************************************************************************************
+package pack;
+
+
+import java.util.List;
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver; 
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class sub {
+
+	public static String browser = "chrome";// external configuration XLS,CSV
+	public static WebDriver driver;
+	
+	public static void main(String[] args) {
+
+		if (browser.equals("chrome")) {
+			WebDriverManager.chromedriver().setup(); // creating object
+			driver = new ChromeDriver();
+
+		} else if (browser.equals("Firefox")) {
+			WebDriverManager.firefoxdriver().setup();
+			driver = new FirefoxDriver();
+		} else if (browser.equals("edge")) {
+			WebDriverManager.edgedriver().setup();
+			driver = new EdgeDriver();
+		}
+
+		//methods in webdrivers
+		/*
+		 * 1.navigate to url 2.maximize the tab 3.get current url 4.title of url 5.all
+		 * html pagesource printedin output 6.navigated to google 7.closed
+		 */
+		driver.get("https://www.saucedemo.com/");// till here we have open browser and launch that url
+		driver.manage().window().maximize();
+		
+		String currentUrl = driver.getCurrentUrl();
+		System.out.println(currentUrl);
+		
+		String title=driver.getTitle();
+		System.out.println(title);
+		
+		String pagesource=driver.getPageSource();
+		System.out.println(pagesource);
+		
+		//driver.navigate().to("http://google.com");
+		
+		
+		
+		//methods in webdrivers few more methods
+		
+		driver.findElement(By.name("user-name")).sendKeys("standard_user");
+		driver.findElement(By.name("password")).sendKeys("secret_sauce");
+		driver.findElement(By.xpath("/html/body/div/div/div[2]/div[1]/div[1]/div/form/input")).click();
+		
+		List<WebElement> webelements = driver.findElements(By.xpath("//div[@class='inventory_list']/div")); //forxpath weneed ctrl+f customise the xpath
+		System.out.println(webelements);
+		
+		driver.navigate().to("https://www.sugarcrm.com/au/solutions/");
+		String windowhandle =driver.getWindowHandle();
+		System.out.println(windowhandle);
+		//click on request demo
+		driver.findElement(By.xpath("//*[@id=\"main\"]/section[4]/div/div/div[1]/a")).click();
+        Set<String> windowhandles= driver.getWindowHandles();
+		System.out.println(windowhandles);
+		
+		driver.quit();
+		
+		
+        
+	}
+
+}
+
+********************************************************************************************
+
+
+
+package amazonlogin;
+
+import org.testng.annotations.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeTest;
+
+public class AmazonLogin {	 
+	String driverPath="C:\\Users\\HP\\Desktop\\icons folder\\web\\chromedriver.exe";
+	 public WebDriver driver;
+	 
+	  @BeforeTest
+	  public void beforeTest() throws InterruptedException {
+		  System.setProperty("webdriver.chrome.driver",driverPath);
+			 driver=new ChromeDriver();
+	  }
+	  //url
+	  @Test
+	  public void gh() {
+	driver.manage().window().maximize();
+			
+			String websiteurl="http://www.google.com";
+			driver.get(websiteurl);
+			driver.findElement(By.xpath("//button[@aria-label='No thanks']")).click();
+	  }
+	  //site enter
+	  @Test
+	  public void fnInput()
+	  {
+		 
+	  WebElement p=driver.findElement(By.xpath("//input[@class='gLFyf gsfi']"));
+			p.sendKeys("amazon");
+		p.sendKeys(Keys.ENTER);
+		WebElement Sitelink=driver.findElement(By.xpath("//h3[@class='LC20lb DKV0Md']"));
+		Sitelink.click();
+			 
+	  }
+	  //login
+	  @Test
+	  public void dev() {
+		  driver.findElement(By.xpath("//a[@id='nav-link-accountList']")).click();
+			 WebElement a= driver.findElement(By.xpath("//input[@id='ap_email']"));
+			 a.sendKeys("saitejaswi.chakravaram05@gmail.com");
+			driver.findElement(By.xpath("//input[@class='a-button-input']")).click();
+			WebElement b= driver.findElement(By.xpath("//input[@id='ap_password']"));
+		 b.sendKeys("Saitejaswi.05");
+		 driver.findElement(By.xpath("//input[@id='signInSubmit']")).click();
+	  }
+	  
+	  @Test
+	  public void tearDown() {
+		  driver.quit();
+		  
+	  }
+	  
+
+	}
 
 
 
