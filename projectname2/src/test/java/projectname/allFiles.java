@@ -818,6 +818,174 @@ public class AmazonLogin {
 
 	}
 
+************************************************************************************************************************************
+package test;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.PageLoadStrategy;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class UserStory1_LoginTestNG {
+	public static RemoteWebDriver dr = null;
+	
+
+	@Test
+	public void chairs() throws Throwable {
+		browse("https:\\www.amazon.in");
+		  dr.findElement(By.xpath("//a[@id='nav-link-accountList']")).click();
+			 WebElement a= dr.findElement(By.xpath("//input[@id='ap_email']"));
+			 a.sendKeys("saitejaswi.chakravaram05@gmail.com");
+			dr.findElement(By.xpath("//input[@class='a-button-input']")).click();
+			WebElement b= dr.findElement(By.xpath("//input[@id='ap_password']"));
+		 b.sendKeys("Saitejaswi.05");
+		 dr.findElement(By.xpath("//input[@id='signInSubmit']")).click();
+		 dr.findElement(By.id("twotabsearchtextbox"));
+		 do_search("Furniture", "chairs for computer table");
+		Thread.sleep(2000);
+		find_name();
+	}
+
+	public void browse(String website) {
+		WebDriverManager.chromedriver().setup();
+		ChromeOptions opt = new ChromeOptions();
+		opt.addArguments("--start-maximized");
+		opt.addArguments("--disable-notifications");
+		opt.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+		dr = new ChromeDriver(opt);
+		dr.get(website);
+	}
+
+	public void do_search(String ddvalue, String search_criteria) {
+		WebElement ddelement = dr.findElement(By.id("searchDropdownBox"));
+		Select dropdown = new Select(ddelement);
+		dropdown.selectByVisibleText(ddvalue);
+		WebElement search_field = dr.findElement(By.id("twotabsearchtextbox"));
+		search_field.sendKeys(search_criteria);
+		WebElement search = dr.findElement(By.xpath("//*[@id='nav-search-submit-text']/input"));
+		search.click();
+	}
+
+	public void find_name() throws Throwable {
+		List<WebElement> lst1 = dr.findElements(By.xpath("//*[@class='a-size-base-plus a-color-base a-text-normal']"));
+		String x, y;
+		System.out.println(lst1.size());
+
+		List<WebElement> lst2 = dr.findElements(By.xpath("//span[@class='a-price-whole']"));
+		List<Integer> price_list = new ArrayList<Integer>();
+
+		for (int i = 0; i < lst2.size(); i++) {
+			x = lst2.get(i).getText();
+			y = x.replaceAll(",", "");
+			price_list.add(Integer.parseInt(y));
+		}
+
+		for (Integer price : price_list) {
+			System.out.println(price);
+		}
+
+		Collections.sort(price_list);
+		int size = price_list.size() - 1;
+		int bigger = price_list.get(size);
+		System.out.println("Highest Chair Price is : " + bigger);
+
+		String val = Integer.toString(bigger);
+		int check = val.length() - 3;
+		String a = val.substring(0, check);
+		String b = val.substring(check);
+		String text = String.join(",", a, b);
+		System.out.println(text);
+		// dr.findElementByXPath("(//span[contains(text(),"+'"'+text+'"'+")])[1]/preceding::span[2]").click();
+		Thread.sleep(4000);
+		dr.findElement(By.xpath("(//span[contains(text()," + "'" + text + "'" + ")])[1]/preceding::img[1]")).click();
+		Thread.sleep(4000);
+//		dr.findElement(By.xpath("(//*[@id='acrCustomerReviewText'])[1]")).click();
+//		Thread.sleep(4000);
+	String rating = dr.findElement(By.xpath("//*[@id='reviewsMedley']/div/div[1]/div[2]/div[1]/div/div[2]/div/span/span")).getText();
+		System.out.println(rating);
+
+	
+
+	}
+
+	@AfterTest
+	public void close() {
+		dr.quit();
+	}
+
+}
+
+**************************************************************************************************************************************************************************
+package test;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class Amazon {
+	String driverPath="C:\\Users\\HP\\Desktop\\icons folder\\web\\chromedriver.exe";
+	 public WebDriver driver;
+	 
+	  @BeforeTest
+	  public void beforeTest() throws InterruptedException {
+		  System.setProperty("webdriver.chrome.driver",driverPath);
+			 driver=new ChromeDriver();
+	  }
+	  //url
+	  @Test
+	  public void gh() {
+	driver.manage().window().maximize();
+			
+			//String websiteurl="http://www.google.com";
+             String websiteurl="http://www.amazon.com";
+
+			driver.get(websiteurl);
+			//driver.findElement(By.xpath("//button[@aria-label='No thanks']")).click();
+	  }
+	  //site enter
+//	  @Test
+//	  public void fnInput()
+//	  {
+//		 
+//	  WebElement p=driver.findElement(By.xpath("//input[@class='gLFyf gsfi']"));
+//			p.sendKeys("amazon");
+//		p.sendKeys(Keys.ENTER);
+//		WebElement Sitelink=driver.findElement(By.xpath("//h3[@class='LC20lb DKV0Md']"));
+//		Sitelink.click();
+//			 
+//	  }
+	  //login
+	  @Test
+	  public void dev() {
+		  driver.findElement(By.xpath("//a[@id='nav-link-accountList']")).click();
+			 WebElement a= driver.findElement(By.xpath("//input[@id='ap_email']"));
+			 a.sendKeys("saitejaswi.chakravaram05@gmail.com");
+			driver.findElement(By.xpath("//input[@class='a-button-input']")).click();
+			WebElement b= driver.findElement(By.xpath("//input[@id='ap_password']"));
+		 b.sendKeys("Saitejaswi.05");
+		 driver.findElement(By.xpath("//input[@id='signInSubmit']")).click();
+	  }
+	  
+}
+******************************************************************************************************************************************
 
 
 
