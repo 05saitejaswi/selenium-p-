@@ -208,11 +208,11 @@ public class LoginAmazon {
    
   driver.findElement(By.xpath(".//*[@data-nav-role='signin']")).click(); 
    
-  driver.findElement(By.xpath("//input[@id='ap_email']")).sendKeys("saitejaswi.chakravaram05@gmail.com");// Pass Correct User Name 
+  driver.findElement(By.xpath("//input[@id='ap_email']")).sendKeys("**********85@gmail.com");// Pass Correct User Name 
    
   driver.findElement(By.xpath("//input[@id='continue']")).click(); 
    
-  driver.findElement(By.xpath("//input[@id='ap_password']")).sendKeys("Saitejaswi"); // Pass Incorrect Password 
+  driver.findElement(By.xpath("//input[@id='ap_password']")).sendKeys("*********88"); // Pass Incorrect Password 
    
   driver.findElement(By.xpath("//input[@id='signInSubmit']")).click(); 
    
@@ -235,11 +235,11 @@ public class LoginAmazon {
  
    newdriver.findElement(By.xpath(".//*[@data-nav-role='signin']")).click(); 
    
-   newdriver.findElement(By.xpath(".//[@id='ap_email']")).sendKeys("saitejaswi.chakravaram05@gmail.com"); // Pass Correct User Name 
+   newdriver.findElement(By.xpath(".//[@id='ap_email']")).sendKeys("*************@gmail.com"); // Pass Correct User Name 
     
    newdriver.findElement(By.xpath(".//input[@id='continue']")).click(); 
     
-   newdriver.findElement(By.xpath(".//[@id='ap_password']")).sendKeys("Saitejaswi.05"); // Pass Correct Password 
+   newdriver.findElement(By.xpath(".//[@id='ap_password']")).sendKeys("******85"); // Pass Correct Password 
     
    newdriver.findElement(By.xpath(".//input[@id='signInSubmit']")).click(); 
   } 
