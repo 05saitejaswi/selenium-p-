@@ -157,3 +157,150 @@ public class LoginAmazon {
 			
 		}
 }
+
+
+******************************************************************************************************************************************************************
+package Amazon; 
+ 
+import java.io.File; 
+import java.io.IOException; 
+import java.util.ArrayList; 
+import java.util.List; 
+import java.util.Set; 
+ 
+import org.apache.commons.io.FileUtils; 
+import org.openqa.selenium.By; 
+import org.openqa.selenium.Keys; 
+import org.openqa.selenium.OutputType; 
+import org.openqa.selenium.TakesScreenshot; 
+import org.openqa.selenium.WebDriver; 
+import org.openqa.selenium.WebElement; 
+import org.openqa.selenium.chrome.ChromeDriver; 
+import org.openqa.selenium.chrome.ChromeOptions; 
+import org.openqa.selenium.interactions.Actions; 
+import org.testng.Reporter; 
+import org.testng.annotations.AfterClass; 
+import org.testng.annotations.BeforeTest; 
+import org.testng.annotations.Test; 
+ 
+import io.github.bonigarcia.wdm.WebDriverManager; 
+ 
+public class LoginAmazon { 
+ String driverPath="C:\\Users\\HP\\Desktop\\icons folder\\web\\chromedriver.exe"; 
+  public WebDriver driver; 
+   
+   @Test 
+   public void beforeTest() throws InterruptedException { 
+    System.setProperty("webdriver.chrome.driver",driverPath); 
+    driver=new ChromeDriver(); 
+   } 
+   //url 
+   @Test 
+   public void gh() throws InterruptedException  
+   { 
+      driver.get("https://www.google.com/"); 
+//  driver.get("https://www.amazon.com/"); 
+   
+  driver.findElement(By.xpath(".//form[@action='/search']/descendant::input")).sendKeys("amazon"); 
+  driver.findElement(By.xpath(".//form[@action='/search']/descendant::input")).sendKeys(Keys.ENTER); 
+   
+  driver.findElement(By.xpath(".//h3[normalize-space(text())='Amazon.in']/..")).click(); 
+   
+  driver.findElement(By.xpath(".//*[@data-nav-role='signin']")).click(); 
+   
+  driver.findElement(By.xpath("//input[@id='ap_email']")).sendKeys("saitejaswi.chakravaram05@gmail.com");// Pass Correct User Name 
+   
+  driver.findElement(By.xpath("//input[@id='continue']")).click(); 
+   
+  driver.findElement(By.xpath("//input[@id='ap_password']")).sendKeys("Saitejaswi"); // Pass Incorrect Password 
+   
+  driver.findElement(By.xpath("//input[@id='signInSubmit']")).click(); 
+   
+  if(driver.findElement(By.tagName("body")).getText().trim().contains("Your password is incorrect")) 
+  { 
+   driver.quit(); 
+   
+   Thread.sleep(3000); 
+    
+   WebDriver newdriver = new ChromeDriver(); 
+ 
+   newdriver.get("https://www.google.com/"); 
+//   driver.get("https://www.amazon.com/"); 
+    
+   newdriver.findElement(By.xpath(".//form[@action='/search']/descendant::input")).sendKeys("amazon"); 
+   newdriver.findElement(By.xpath(".//form[@action='/search']/descendant::input")).sendKeys(Keys.ENTER); 
+    
+   newdriver.findElement(By.xpath(".//h3[normalize-space(text())='Amazon.in']/..")).click(); 
+    
+ 
+   newdriver.findElement(By.xpath(".//*[@data-nav-role='signin']")).click(); 
+   
+   newdriver.findElement(By.xpath(".//[@id='ap_email']")).sendKeys("saitejaswi.chakravaram05@gmail.com"); // Pass Correct User Name 
+    
+   newdriver.findElement(By.xpath(".//input[@id='continue']")).click(); 
+    
+   newdriver.findElement(By.xpath(".//[@id='ap_password']")).sendKeys("Saitejaswi.05"); // Pass Correct Password 
+    
+   newdriver.findElement(By.xpath(".//input[@id='signInSubmit']")).click(); 
+  } 
+ 
+  } 
+
+   @Test(priority=2,description="2st testcase") 
+   public void fun2() throws InterruptedException { 
+     Thread.sleep(3000); 
+     WebElement search=driver.findElement(By.xpath("//input[@id='twotabsearchtextbox']")); 
+     search.sendKeys("oneplus 9 pro"); 
+    search.sendKeys(Keys.ENTER); 
+     System.out.println("Searched oneplus 9 pro"); 
+   } 
+   @Test(priority=3,description="3st testcase") 
+   public void fun3() throws IOException, InterruptedException { 
+     //throws IOException { 
+     WebElement rating = driver.findElement(By.className("a-icon-alt")); 
+     Reporter.log("searched onepluse 9 pro"); 
+     System.out.println(rating.getText()); 
+     Actions builder = new Actions(driver); 
+     builder.moveToElement(rating).click().perform(); 
+     //1star //h2[@class='a-size-mini a-spacing-none a-color-base s-line-clamp-2'] //a[1]//span[1] 
+     Thread.sleep(2000); 
+     String percentageOfRating1 = driver.findElement(By.xpath("//table[@id='histogramTable']//tr[5]/td[3]//a")).getText(); 
+     Reporter.log("Reviews that have 1 stars: "+percentageOfRating1); 
+     System.out.println("Reviews that have 1 stars: "+percentageOfRating1); 
+        //2starts 
+     String percentageOfRating2 = driver.findElement(By.xpath("//table[@id='histogramTable']//tr[4]/td[3]//a")).getText(); 
+     Reporter.log("Reviews that have 2 stars: "+percentageOfRating1); 
+     System.out.println("Reviews that have 2 stars: "+percentageOfRating2); 
+     //3stars 
+     String percentageOfRating3 = driver.findElement(By.xpath("//table[@id='histogramTable']//tr[3]/td[3]//a")).getText(); 
+        Reporter.log("Reviews that have 3 stars: "+percentageOfRating3); 
+     System.out.println("Reviews that have 3 stars: "+percentageOfRating3); 
+     //4 starts 
+     String percentageOfRating4 = driver.findElement(By.xpath("//table[@id='histogramTable']//tr[2]/td[3]//a")).getText(); 
+        Reporter.log("Reviews that have 4 stars: "+percentageOfRating4); 
+     System.out.println("Reviews that have 4 stars: "+percentageOfRating4); 
+      
+     //% of reviews have 5 stars 
+     String percentageOfRating = driver.findElement(By.xpath("//table[@id='histogramTable']//tr[1]/td[3]//a")).getText(); 
+     Reporter.log("Reviews that have 5 stars: "+percentageOfRating); 
+     System.out.println("Reviews that have 5 stars: "+percentageOfRating); 
+     driver.findElement(By.xpath("(//div[@class='a-section a-spacing-none']/h2/a)[1]")).click(); 
+ 
+     Set<String> winHandles = driver.getWindowHandles(); 
+     List<String> winList = new ArrayList<String>(winHandles); 
+     driver.switchTo().window(winList.get(1)); 
+     Thread.sleep(2000); 
+     File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE); 
+     File des = new File("./snap/amazon.png"); 
+     FileUtils.copyFile(src, des); 
+     System.out.println("Took screenshot"); 
+     String b= driver.findElement(By.xpath("//span[@id='priceblock_dealprice']")).getText(); 
+     System.out.println("the cost of the mobile is: "+ b);      
+    } 
+   @AfterClass 
+  public void close() { 
+    System.out.println("cloased window"); 
+   driver.quit(); 
+    
+  } 
+}
