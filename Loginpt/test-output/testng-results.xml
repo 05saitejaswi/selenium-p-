@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+  <reporter-output>
+    <line>
+      <![CDATA[searched onepluse 9 pro]]>
+    </line>
+    <line>
+      <![CDATA[Reviews that have 1 stars: 7%]]>
+    </line>
+    <line>
+      <![CDATA[Reviews that have 2 stars: 7%]]>
+    </line>
+    <line>
+      <![CDATA[Reviews that have 3 stars: 5%]]>
+    </line>
+    <line>
+      <![CDATA[Reviews that have 4 stars: 25%]]>
+    </line>
+    <line>
+      <![CDATA[Reviews that have 5 stars: 61%]]>
+    </line>
+  </reporter-output>
+  <suite started-at="2021-11-02T19:29:49 IST" name="Default suite" finished-at="2021-11-02T19:33:03 IST" duration-ms="193808">
+    <groups>
+    </groups>
+    <test started-at="2021-11-02T19:29:49 IST" name="Default test" finished-at="2021-11-02T19:33:03 IST" duration-ms="193808">
+      <class name="Amazon.LoginAmazon">
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:Amazon.LoginAmazon@2d710f1a]" started-at="2021-11-02T19:29:43 IST" name="beforeTest" finished-at="2021-11-02T19:29:49 IST" duration-ms="5588" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method signature="Login()[pri:0, instance:Amazon.LoginAmazon@2d710f1a]" started-at="2021-11-02T19:29:49 IST" name="Login" finished-at="2021-11-02T19:32:16 IST" duration-ms="147000" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method signature="Search()[pri:2, instance:Amazon.LoginAmazon@2d710f1a]" started-at="2021-11-02T19:32:16 IST" name="Search" description="2st testcase" finished-at="2021-11-02T19:32:34 IST" duration-ms="17953" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Search -->
+        <test-method signature="rating()[pri:3, instance:Amazon.LoginAmazon@2d710f1a]" started-at="2021-11-02T19:32:34 IST" name="rating" description="3st testcase" finished-at="2021-11-02T19:33:03 IST" duration-ms="28788" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[searched onepluse 9 pro]]>
+            </line>
+            <line>
+              <![CDATA[Reviews that have 1 stars: 7%]]>
+            </line>
+            <line>
+              <![CDATA[Reviews that have 2 stars: 7%]]>
+            </line>
+            <line>
+              <![CDATA[Reviews that have 3 stars: 5%]]>
+            </line>
+            <line>
+              <![CDATA[Reviews that have 4 stars: 25%]]>
+            </line>
+            <line>
+              <![CDATA[Reviews that have 5 stars: 61%]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- rating -->
+      </class> <!-- Amazon.LoginAmazon -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
